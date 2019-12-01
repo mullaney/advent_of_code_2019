@@ -1,4 +1,3 @@
-
 import math
 
 def fuel_required(mass):
@@ -13,13 +12,6 @@ def total_fuel_required(mass):
 
 if __name__ == '__main__':
   f = open("../data/input.txt", "r")
-  modules = f.readlines()
-  fuel_requirements = []
-  total_fuel_requirements = []
-  for line in modules:
-    mass = int(line.strip())
-    fuel_requirements.append(fuel_required(mass))
-    total_fuel_requirements.append(total_fuel_required(mass))
-  print(sum(fuel_requirements))
-  print(sum(total_fuel_requirements))
-
+  masses = list(map(lambda l: int(l.strip()), f.readlines()))
+  print(sum(map(fuel_required, masses)))
+  print(sum(map(total_fuel_required, masses)))
